@@ -34,7 +34,7 @@ module.exports = (sequelize, DataTypes) => {
         defaultValue: [],
       },
       skills: {
-        type: DataTypes.JSONB,
+        type: DataTypes.ARRAY(DataTypes.STRING),
         allowNull: false,
         defaultValue: [],
       },

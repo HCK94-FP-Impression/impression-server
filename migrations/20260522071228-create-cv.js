@@ -33,7 +33,7 @@ module.exports = {
       skills: {
         allowNull: false,
         defaultValue: [],
-        type: Sequelize.JSONB,
+        type: Sequelize.ARRAY(Sequelize.STRING),
       },
       createdAt: {
         allowNull: false,
