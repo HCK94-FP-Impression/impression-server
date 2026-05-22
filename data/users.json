@@ -1,0 +1,82 @@
+[
+  {
+    "id": 1,
+    "username": "luthfi_dev",
+    "email": "luthfi@example.com",
+    "password": "password123",
+    "quota": 20,
+    "role": "recruiter"
+  },
+  {
+    "id": 2,
+    "username": "aaron_hr",
+    "email": "aaron@example.com",
+    "password": "password123",
+    "quota": 15,
+    "role": "recruiter"
+  },
+  {
+    "id": 3,
+    "username": "tri_backend",
+    "email": "tri@example.com",
+    "password": "password123",
+    "quota": 10,
+    "role": "job_seeker"
+  },
+  {
+    "id": 4,
+    "username": "sari_frontend",
+    "email": "sari@example.com",
+    "password": "password123",
+    "quota": 8,
+    "role": "job_seeker"
+  },
+  {
+    "id": 5,
+    "username": "budi_fullstack",
+    "email": "budi@example.com",
+    "password": "password123",
+    "quota": 5,
+    "role": "job_seeker"
+  },
+  {
+    "id": 6,
+    "username": "rina_uiux",
+    "email": "rina@example.com",
+    "password": "password123",
+    "quota": 12,
+    "role": "job_seeker"
+  },
+  {
+    "id": 7,
+    "username": "dani_devops",
+    "email": "dani@example.com",
+    "password": "password123",
+    "quota": 3,
+    "role": "job_seeker"
+  },
+  {
+    "id": 8,
+    "username": "maya_mobile",
+    "email": "maya@example.com",
+    "password": "password123",
+    "quota": 7,
+    "role": "job_seeker"
+  },
+  {
+    "id": 9,
+    "username": "rizky_data",
+    "email": "rizky@example.com",
+    "password": "password123",
+    "quota": 9,
+    "role": "job_seeker"
+  },
+  {
+    "id": 10,
+    "username": "nadia_qa",
+    "email": "nadia@example.com",
+    "password": "password123",
+    "quota": 6,
+    "role": "job_seeker"
+  }
+]
