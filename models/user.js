@@ -49,7 +49,7 @@ module.exports = (sequelize, DataTypes) => {
       quota: {
         type: DataTypes.INTEGER,
         allowNull: false,
-        defaultValue: 0,
+        defaultValue: 5,
         validate: {
           notNull: { msg: "Quota is required" },
           isInt: { msg: "Quota must be an integer" },

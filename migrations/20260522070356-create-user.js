@@ -24,7 +24,7 @@ module.exports = {
       },
       quota: {
         allowNull: false,
-        defaultValue: 0,
+        defaultValue: 5,
         type: Sequelize.INTEGER,
       },
       role: {
