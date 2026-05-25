@@ -25,6 +25,9 @@ const errorHandler = (err, req, res, next) => {
     case "Forbidden":
       res.status(403).json({ message: err.message });
       break;
+    case "TokenExpiredError":
+      res.status(401).json({ message: "Token expired" });
+      break;
     default:
       res.status(500).json({ message: "Internal Server Error" });
       break;
