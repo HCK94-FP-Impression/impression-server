@@ -22,5 +22,10 @@ router.post(
   authentication,
   PostController.generateCriteria,
 );
+router.post(
+  "/analyze",
+  authentication,
+  PostController.analyzePost,
+);
 
 module.exports = router;
