@@ -105,6 +105,12 @@ class PostController {
    * - criteriaBreakdown : object — statistik rata-rata per criteria, dipisah per segmen:
    *     - social        : rata-rata dari social ratings
    *     - professional  : rata-rata dari professional_recruiter + professional_same_job
+   * - insights          : array — penilaian dari semua professional rater:
+   *     - username      : username voter
+   *     - ratingType    : professional_recruiter atau professional_same_job
+   *     - averageScore  : rata-rata skor dari voter tersebut
+   *     - scores        : array skor per criteria { label, score }
+   *     - insight       : teks komentar (null jika tidak diisi)
    *
    * Digunakan untuk halaman dashboard/profil user sendiri.
    */
@@ -112,9 +118,7 @@ class PostController {
     try {
       const userId = req.user.id;
       const post = await Post.findOne({
-        where: {
-          userId,
-        },
+        where: { userId },
       });
 
       if (!post) {
@@ -123,11 +127,40 @@ class PostController {
 
       const ratings = await Rating.findAll({
         where: { postId: post.id },
+        include: [
+          {
+            model: User,
+            as: "Voter",
+            attributes: ["username"],
+          },
+        ],
       });
 
       const criteriaBreakdown = buildCriteriaBreakdown(post.criteria, ratings);
 
-      res.status(200).json({ post, criteriaBreakdown });
+      // Ambil semua professional ratings beserta detail skor dan insight
+      const insights = ratings
+        .filter(
+          (r) =>
+            r.ratingType === "professional_recruiter" ||
+            r.ratingType === "professional_same_job",
+        )
+        .map((r) => ({
+          username: r.Voter.username,
+          ratingType: r.ratingType,
+          averageScore: Number(
+            (r.scores.reduce((sum, s) => sum + s, 0) / r.scores.length).toFixed(
+              2,
+            ),
+          ),
+          scores: post.criteria.map((label, index) => ({
+            label,
+            score: r.scores[index],
+          })),
+          insight: r.insight,
+        }));
+
+      res.status(200).json({ post, criteriaBreakdown, insights });
     } catch (err) {
       next(err);
     }
@@ -224,9 +257,8 @@ class PostController {
    * - post            : object — data post yang dipilih, termasuk:
    *     - user        : { id, username }
    *     - cv          : data CV user (null jika belum diisi)
+   *     - ratings     : breakdown skor per segmen (social & professional)
    * - cycleCompleted  : boolean — true jika semua post sudah pernah dinilai
-   *
-   * Untuk skip post, frontend kirim skipPostId = id post yang sedang ditampilkan.
    */
   static async getFeed(req, res, next) {
     try {
@@ -235,7 +267,8 @@ class PostController {
       const posts = await Post.findAll({
         where: {
           userId: { [Op.ne]: req.user.id },
-          ...(Number.isInteger(skipPostId) && { id: { [Op.ne]: skipPostId } }),
+          ...(Number.isInteger(skipPostId) &&
+            skipPostId > 0 && { id: { [Op.ne]: skipPostId } }),
         },
         include: [
           {
@@ -249,13 +282,23 @@ class PostController {
               },
             ],
           },
+          {
+            model: Rating,
+            attributes: ["scores", "ratingType", "insight", "voterId"],
+            required: false,
+            include: [
+              {
+                model: User,
+                as: "Voter",
+                attributes: ["username"],
+              },
+            ],
+          },
         ],
       });
 
       const ratedPosts = await Rating.findAll({
-        where: {
-          voterId: req.user.id,
-        },
+        where: { voterId: req.user.id },
         attributes: ["postId"],
       });
 
@@ -282,12 +325,60 @@ class PostController {
           .json({ post: null, message: "No posts available" });
       }
 
-      // Restructure response agar user dan cv sejajar dengan data post
-      const { User: userdata, ...postData } = selectedPost.get({ plain: true });
+      // Restructure response agar user, cv, dan ratings sejajar dengan data post
+      const {
+        User: userdata,
+        Ratings: rawRatings,
+        ...postData
+      } = selectedPost.get({ plain: true });
       const { Cv: cvData, ...userData } = userdata;
 
+      // Hitung criteria breakdown per segmen (social & professional)
+      const { social, professional } = buildCriteriaBreakdown(
+        postData.criteria,
+        rawRatings,
+      );
+
+      // Pisah professional ratings untuk insights dan totalRatings
+      const professionalRatings = rawRatings.filter(
+        (r) =>
+          r.ratingType === "professional_recruiter" ||
+          r.ratingType === "professional_same_job",
+      );
+
+      // Ambil insights dari professional ratings yang punya isi insight
+      const insights = professionalRatings
+        .filter((r) => r.insight)
+        .map((r) => ({
+          username: r.Voter.username,
+          ratingType: r.ratingType,
+          averageScore: Number(
+            (r.scores.reduce((sum, s) => sum + s, 0) / r.scores.length).toFixed(
+              2,
+            ),
+          ),
+          insight: r.insight,
+        }));
+
       res.status(200).json({
-        post: { ...postData, user: userData, cv: cvData },
+        post: {
+          ...postData,
+          user: userData,
+          cv: cvData,
+          ratings: {
+            social: {
+              totalRatings: rawRatings.filter((r) => r.ratingType === "social")
+                .length,
+              criteria: social,
+            },
+            professional: {
+              totalRatings: professionalRatings.length,
+              isRatedByProfessional: professionalRatings.length > 0,
+              criteria: professional,
+              insights,
+            },
+          },
+        },
         cycleCompleted,
       });
     } catch (err) {
@@ -311,26 +402,42 @@ class PostController {
 
   */
   static async analyzePost(req, res, next) {
-        try {
-            const {id: userId} = req.user
-            
-            const cv = await Cv.findOne({where: {userId}})
-            if (!cv || cv.educations.length < 2 || cv.experiences.length < 2 || cv.skills.length < 2) throw {name: 'Forbidden', message: 'Create a CV with at least 1 experience, 1 education, and 1 skill to continue'}
+    try {
+      const { id: userId } = req.user;
 
-            const post = await Post.findOne({where: {userId}})
-            if (!post) throw {name: 'NotFound', message: 'Cannot analyze an empty post'}
-            if (post.aiScore || post.aiInsight) throw {name: 'Forbidden', message: 'Analysis already generated'}
-            
-            const {aiScore, aiInsight} = await analyzeProfile(post.targetJob, post.criteria, cv)
+      const cv = await Cv.findOne({ where: { userId } });
+      if (
+        !cv ||
+        cv.educations.length < 1 ||
+        cv.experiences.length < 1 ||
+        cv.skills.length < 1
+      )
+        throw {
+          name: "Forbidden",
+          message:
+            "Create a CV with at least 1 experience, 1 education, and 1 skill to continue",
+        };
 
-            post.set({aiScore, aiInsight, updatedAt: new Date()})
-            await post.save()
-            await post.reload()
-            res.status(200).json({message: 'Analysis created', aiScore, aiInsight})
-        } catch (error) {
-            next(error)
-        }
+      const post = await Post.findOne({ where: { userId } });
+      if (!post)
+        throw { name: "NotFound", message: "Cannot analyze an empty post" };
+      if (post.aiScore || post.aiInsight)
+        throw { name: "Forbidden", message: "Analysis already generated" };
+
+      const { aiScore, aiInsight } = await analyzeProfile(
+        post.targetJob,
+        post.criteria,
+        cv,
+      );
+
+      post.set({ aiScore, aiInsight, updatedAt: new Date() });
+      await post.save();
+      await post.reload();
+      res.status(200).json({ message: "Analysis created", aiScore, aiInsight });
+    } catch (error) {
+      next(error);
     }
+  }
 }
 
 module.exports = PostController;
