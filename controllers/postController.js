@@ -273,7 +273,7 @@ class PostController {
         include: [
           {
             model: User,
-            attributes: ["id", "username"],
+            attributes: ["id", "username", "email"],
             include: [
               {
                 model: Cv,
