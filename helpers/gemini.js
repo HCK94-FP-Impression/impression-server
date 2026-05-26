@@ -27,4 +27,31 @@ const generateCriteria = async (targetJob) => {
   return result.criteria;
 };
 
-module.exports = { genAi, genAiStructuredOutput, generateCriteria };
+const analyzeProfile = async (targetJob, criteria, cv) => {
+  const prompt = `You are a professional HR analyst and career coach. 
+  Analyze the following candidate profile and evaluate how well their CV matches their target job.
+
+  Target Job: ${targetJob}
+  Evaluation Criteria: ${criteria.join(', ')}
+
+  CV Data:
+  - Experiences: ${JSON.stringify(cv.experiences)}
+  - Educations: ${JSON.stringify(cv.educations)}
+  - Skills: ${cv.skills.join(', ')}
+
+  Return ONLY valid JSON with exactly this schema:
+  {
+    "aiScore": <float between 0 and 3>,
+    "aiInsight": "<2-3 sentences in Indonesian, professional tone, specific to their CV and target job>"
+  }
+
+  Rules:
+  - aiScore must reflect how competitive this profile is for the target job (0 = not competitive, 3 = very competitive)
+  - aiInsight must mention specific skills or experiences from their CV
+  - No markdown, no extra keys, no explanation outside the JSON`;
+
+  const result = await genAiStructuredOutput(prompt)
+  return result;
+};
+
+module.exports = { genAi, genAiStructuredOutput, generateCriteria, analyzeProfile };

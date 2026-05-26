@@ -2,6 +2,7 @@ const { Post, User, Rating, Cv } = require("../models");
 const cloudinary = require("../helpers/cloudinary");
 const {
   generateCriteria: generateCriteriaGemini,
+  analyzeProfile,
 } = require("../helpers/gemini");
 const { Op } = require("sequelize");
 const { buildCriteriaBreakdown } = require("../helpers/ratingHelper");
@@ -293,6 +294,43 @@ class PostController {
       next(err);
     }
   }
+  /*
+    POST - /posts/analyze
+
+    * Bikin analisis dari post (profile) user yang sedang login
+    * Requirement:
+    *  - Punya CV dengan minimal 1 experience, 1 education, dan 1 skill.
+    *  - Punya Post yang lengkap
+    *  - Belum pernah menganalisis post pribadi sebelumnya
+    * Request Body: Empty
+    * Response Structure: {
+    *   message: String,
+    *   aiScore: Number,
+    *   aiInsight: String
+    * }
+
+  */
+  static async analyzePost(req, res, next) {
+        try {
+            const {id: userId} = req.user
+            
+            const cv = await Cv.findOne({where: {userId}})
+            if (!cv || cv.educations.length < 2 || cv.experiences.length < 2 || cv.skills.length < 2) throw {name: 'Forbidden', message: 'Create a CV with at least 1 experience, 1 education, and 1 skill to continue'}
+
+            const post = await Post.findOne({where: {userId}})
+            if (!post) throw {name: 'NotFound', message: 'Cannot analyze an empty post'}
+            if (post.aiScore || post.aiInsight) throw {name: 'Forbidden', message: 'Analysis already generated'}
+            
+            const {aiScore, aiInsight} = await analyzeProfile(post.targetJob, post.criteria, cv)
+
+            post.set({aiScore, aiInsight, updatedAt: new Date()})
+            await post.save()
+            await post.reload()
+            res.status(200).json({message: 'Analysis created', aiScore, aiInsight})
+        } catch (error) {
+            next(error)
+        }
+    }
 }
 
 module.exports = PostController;
