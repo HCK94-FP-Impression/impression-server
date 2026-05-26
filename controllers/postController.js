@@ -421,7 +421,7 @@ class PostController {
       const post = await Post.findOne({ where: { userId } });
       if (!post)
         throw { name: "NotFound", message: "Cannot analyze an empty post" };
-      if (post.aiScore || post.aiInsight)
+      if (post.aiScore !== null || post.aiInsight !== null)
         throw { name: "Forbidden", message: "Analysis already generated" };
 
       const { aiScore, aiInsight } = await analyzeProfile(
