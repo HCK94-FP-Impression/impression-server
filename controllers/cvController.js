@@ -82,6 +82,7 @@ class CvController {
     */
     static async createCv(req, res, next) {
         try {
+            const { id: userId } = req.user
             const user = await User.findByPk(userId)
             if (!user) throw {name: 'NotFound', message: 'User not found'}
             if (user.quota < 5) throw {name: 'Forbidden', message: 'Not enough tokens to create CV'}
@@ -90,7 +91,7 @@ class CvController {
                 experiences: req?.body?.experiences || [], 
                 educations: req?.body?.educations || [],
                 skills: req?.body?.skills || [],
-                userId: req.user.id
+                userId
             }
             const cvInstance = await Cv.build(checkCv);
             const cv = await CvController.validateCv(cvInstance)
