@@ -1,6 +1,24 @@
 [
   {
     "id": 1,
+    "userId": 1,
+    "image": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400",
+    "targetJob": "Backend Developer",
+    "criteria": ["profesional", "teknikal", "komunikatif"],
+    "aiScore": 2.8,
+    "aiInsight": "Kandidat menunjukkan spesialisasi yang kuat melalui pengalaman langsung membangun REST API menggunakan Node.js dan PostgreSQL serta penguasaan Docker. Latar belakang pendidikan dari universitas ternama dengan IPK tinggi mencerminkan keandalan dan fokus yang sangat baik untuk posisi Backend Developer."
+  },
+  {
+    "id": 2,
+    "userId": 2,
+    "image": "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=400",
+    "targetJob": "HR Manager",
+    "criteria": ["empatik", "komunikatif", "leadership"],
+    "aiScore": 2.9,
+    "aiInsight": "Foto profil memberikan kesan yang sangat profesional dan berwibawa untuk posisi HR Manager. Ekspresi yang hangat namun tegas mencerminkan kemampuan leadership dan empati yang diperlukan. Penampilan rapi menunjukkan perhatian terhadap detail yang penting dalam peran HR."
+  },
+  {
+    "id": 3,
     "userId": 3,
     "image": "https://images.unsplash.com/photo-1607990281513-2c110a25bd8c?w=400",
     "targetJob": "Backend Developer",
@@ -9,7 +27,7 @@
     "aiInsight": "Profil ini menunjukkan kesan yang solid untuk posisi Backend Developer. Ekspresi wajah yang tenang dan serius mencerminkan kemampuan problem-solving yang baik. Disarankan untuk memperhatikan pencahayaan foto agar terlihat lebih profesional."
   },
   {
-    "id": 2,
+    "id": 4,
     "userId": 4,
     "image": "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400",
     "targetJob": "Frontend Developer",
@@ -18,7 +36,7 @@
     "aiInsight": "Foto profil sangat profesional dan sesuai untuk posisi Frontend Developer. Penampilan yang rapi dan senyum yang ramah memberikan kesan mudah diajak kolaborasi. Profil ini sangat kompetitif untuk industri IT."
   },
   {
-    "id": 3,
+    "id": 5,
     "userId": 5,
     "image": "https://images.unsplash.com/photo-1560250097-0b93528c311a?w=400",
     "targetJob": "Fullstack Developer",
@@ -27,16 +45,16 @@
     "aiInsight": "Kesan pertama dari foto ini cukup baik untuk posisi Fullstack Developer. Ekspresi yang percaya diri menunjukkan kemampuan mengambil inisiatif. Latar belakang foto bisa diperbaiki agar lebih netral dan profesional."
   },
   {
-    "id": 4,
+    "id": 6,
     "userId": 6,
     "image": "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=400",
     "targetJob": "UI/UX Designer",
     "criteria": ["kreatif", "empatik", "estetis"],
-    "aiScore": 3.1,
+    "aiScore": 3.0,
     "aiInsight": "Foto profil ini sangat sesuai untuk posisi UI/UX Designer. Penampilan yang stylish namun tetap profesional mencerminkan sensitivitas estetika yang tinggi. Kesan empati dan keterbukaan sangat terasa dari ekspresi wajah."
   },
   {
-    "id": 5,
+    "id": 7,
     "userId": 7,
     "image": "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400",
     "targetJob": "DevOps Engineer",
@@ -45,7 +63,7 @@
     "aiInsight": "Profil ini memberikan kesan yang cukup kompeten untuk posisi DevOps Engineer. Ekspresi serius dan fokus mencerminkan karakter yang teliti dan sistematis. Disarankan menggunakan pakaian yang lebih formal untuk meningkatkan kesan profesional."
   },
   {
-    "id": 6,
+    "id": 8,
     "userId": 8,
     "image": "https://images.unsplash.com/photo-1594744803329-e58b31de8bf5?w=400",
     "targetJob": "Mobile Developer",
@@ -54,7 +72,7 @@
     "aiInsight": "Foto profil menunjukkan kesan yang positif dan energik untuk posisi Mobile Developer. Ekspresi yang antusias mencerminkan semangat inovasi yang diperlukan dalam pengembangan aplikasi mobile."
   },
   {
-    "id": 7,
+    "id": 9,
     "userId": 9,
     "image": "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=400",
     "targetJob": "Data Scientist",
@@ -63,7 +81,7 @@
     "aiInsight": "Profil ini sangat kuat untuk posisi Data Scientist. Kesan intelektual dan analitis sangat terpancar dari foto ini. Penampilan yang rapi dan ekspresi yang thoughtful mencerminkan kemampuan berpikir kritis yang diperlukan."
   },
   {
-    "id": 8,
+    "id": 10,
     "userId": 10,
     "image": "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400",
     "targetJob": "QA Engineer",
