@@ -1,137 +1,409 @@
 [
   {
-    "id": 1,
     "postId": 1,
-    "voterId": 1,
-    "scores": [3, 2, 3],
+    "voterId": 2,
+    "scores": [3, 3, 3],
     "ratingType": "professional_recruiter",
-    "insight": "Kandidat ini memiliki kesan profesional yang kuat. Komunikasi dan analisis terlihat menonjol dari profil ini."
+    "insight": "Profil yang sangat kuat untuk Backend Developer. Kesan profesional dan teknikal sangat menonjol, cocok untuk tim engineering kami."
   },
   {
-    "id": 2,
     "postId": 1,
-    "voterId": 5,
-    "scores": [2, 3, 2],
+    "voterId": 3,
+    "scores": [3, 2, 3],
     "ratingType": "professional_same_job",
+    "insight": "Sesama backend developer, profil ini memberikan kesan yang solid. Stack yang dimiliki relevan dan up-to-date."
+  },
+  {
+    "postId": 1,
+    "voterId": 4,
+    "scores": [2, 3, 2],
+    "ratingType": "social",
     "insight": null
   },
   {
-    "id": 3,
     "postId": 1,
-    "voterId": 4,
+    "voterId": 6,
     "scores": [3, 2, 2],
     "ratingType": "social",
     "insight": null
   },
   {
-    "id": 4,
+    "postId": 1,
+    "voterId": 9,
+    "scores": [2, 2, 3],
+    "ratingType": "social",
+    "insight": null
+  },
+
+  {
     "postId": 2,
+    "voterId": 1,
+    "scores": [3, 3, 3],
+    "ratingType": "professional_recruiter",
+    "insight": "Rekan sesama recruiter — profil yang sangat berwibawa dan profesional. Leadership dan komunikasi sangat terasa kuat."
+  },
+  {
+    "postId": 2,
+    "voterId": 3,
+    "scores": [2, 3, 2],
+    "ratingType": "social",
+    "insight": null
+  },
+  {
+    "postId": 2,
+    "voterId": 5,
+    "scores": [3, 2, 3],
+    "ratingType": "social",
+    "insight": null
+  },
+  {
+    "postId": 2,
+    "voterId": 7,
+    "scores": [2, 3, 2],
+    "ratingType": "social",
+    "insight": null
+  },
+  {
+    "postId": 2,
+    "voterId": 10,
+    "scores": [3, 3, 2],
+    "ratingType": "social",
+    "insight": null
+  },
+
+  {
+    "postId": 3,
+    "voterId": 1,
+    "scores": [3, 2, 3],
+    "ratingType": "professional_recruiter",
+    "insight": "Kandidat yang menjanjikan untuk posisi backend. Kesan analitis dan profesional sangat menonjol dari profil ini."
+  },
+  {
+    "postId": 3,
+    "voterId": 2,
+    "scores": [2, 3, 3],
+    "ratingType": "professional_recruiter",
+    "insight": "Profil yang kompeten untuk Backend Developer. Background teknikal terlihat kuat dari presentasi keseluruhan."
+  },
+  {
+    "postId": 3,
+    "voterId": 5,
+    "scores": [2, 2, 3],
+    "ratingType": "social",
+    "insight": null
+  },
+  {
+    "postId": 3,
+    "voterId": 7,
+    "scores": [3, 2, 2],
+    "ratingType": "social",
+    "insight": null
+  },
+  {
+    "postId": 3,
+    "voterId": 8,
+    "scores": [2, 3, 2],
+    "ratingType": "social",
+    "insight": null
+  },
+  {
+    "postId": 3,
+    "voterId": 10,
+    "scores": [3, 3, 2],
+    "ratingType": "social",
+    "insight": null
+  },
+
+  {
+    "postId": 4,
+    "voterId": 1,
+    "scores": [3, 3, 2],
+    "ratingType": "professional_recruiter",
+    "insight": "Profil Frontend Developer yang sangat menarik. Kreativitas dan perhatian terhadap detail sangat terlihat jelas."
+  },
+  {
+    "postId": 4,
     "voterId": 2,
     "scores": [3, 3, 3],
     "ratingType": "professional_recruiter",
     "insight": "Sangat profesional dan kreatif. Profil ini sangat cocok untuk posisi Frontend Developer di perusahaan kami."
   },
   {
-    "id": 5,
-    "postId": 2,
-    "voterId": 3,
-    "scores": [2, 3, 3],
-    "ratingType": "social",
-    "insight": null
-  },
-  {
-    "id": 6,
-    "postId": 3,
-    "voterId": 1,
-    "scores": [2, 2, 3],
-    "ratingType": "professional_recruiter",
-    "insight": "Potensi yang bagus untuk Fullstack Developer. Perlu mengembangkan kesan profesional lebih lanjut."
-  },
-  {
-    "id": 7,
-    "postId": 3,
-    "voterId": 9,
-    "scores": [3, 2, 2],
-    "ratingType": "social",
-    "insight": null
-  },
-  {
-    "id": 8,
-    "postId": 4,
-    "voterId": 2,
-    "scores": [3, 3, 3],
-    "ratingType": "professional_recruiter",
-    "insight": "Profil yang luar biasa untuk UI/UX Designer. Estetika dan empati sangat terasa dari foto ini."
-  },
-  {
-    "id": 9,
     "postId": 4,
     "voterId": 3,
-    "scores": [3, 3, 2],
-    "ratingType": "social",
-    "insight": null
-  },
-  {
-    "id": 10,
-    "postId": 5,
-    "voterId": 4,
     "scores": [2, 3, 3],
     "ratingType": "social",
     "insight": null
   },
   {
-    "id": 11,
-    "postId": 5,
-    "voterId": 9,
-    "scores": [3, 2, 3],
-    "ratingType": "social",
-    "insight": null
-  },
-  {
-    "id": 12,
-    "postId": 6,
-    "voterId": 1,
-    "scores": [3, 2, 3],
-    "ratingType": "professional_recruiter",
-    "insight": "Energik dan inovatif. Cocok untuk tim mobile development yang dinamis."
-  },
-  {
-    "id": 13,
-    "postId": 6,
-    "voterId": 5,
-    "scores": [2, 3, 3],
-    "ratingType": "social",
-    "insight": null
-  },
-  {
-    "id": 14,
-    "postId": 7,
-    "voterId": 2,
-    "scores": [3, 3, 3],
-    "ratingType": "professional_recruiter",
-    "insight": "Profil yang sangat kuat untuk Data Scientist. Kesan analitis dan intelektual sangat menonjol."
-  },
-  {
-    "id": 15,
-    "postId": 7,
+    "postId": 4,
     "voterId": 6,
     "scores": [3, 2, 3],
     "ratingType": "social",
     "insight": null
   },
   {
-    "id": 16,
+    "postId": 4,
+    "voterId": 9,
+    "scores": [2, 3, 2],
+    "ratingType": "social",
+    "insight": null
+  },
+  {
+    "postId": 4,
+    "voterId": 10,
+    "scores": [3, 2, 3],
+    "ratingType": "social",
+    "insight": null
+  },
+
+  {
+    "postId": 5,
+    "voterId": 1,
+    "scores": [2, 3, 3],
+    "ratingType": "professional_recruiter",
+    "insight": "Potensi yang bagus untuk Fullstack Developer. Kesan adaptif dan inisiatif terlihat kuat dari profil ini."
+  },
+  {
+    "postId": 5,
+    "voterId": 2,
+    "scores": [3, 2, 3],
+    "ratingType": "professional_recruiter",
+    "insight": "Profil fullstack yang solid. Kombinasi skill teknikal dan soft skill terlihat seimbang."
+  },
+  {
+    "postId": 5,
+    "voterId": 4,
+    "scores": [2, 3, 2],
+    "ratingType": "social",
+    "insight": null
+  },
+  {
+    "postId": 5,
+    "voterId": 8,
+    "scores": [3, 2, 2],
+    "ratingType": "social",
+    "insight": null
+  },
+  {
+    "postId": 5,
+    "voterId": 9,
+    "scores": [2, 2, 3],
+    "ratingType": "social",
+    "insight": null
+  },
+  {
+    "postId": 5,
+    "voterId": 10,
+    "scores": [3, 3, 2],
+    "ratingType": "social",
+    "insight": null
+  },
+
+  {
+    "postId": 6,
+    "voterId": 1,
+    "scores": [3, 3, 3],
+    "ratingType": "professional_recruiter",
+    "insight": "Profil yang luar biasa untuk UI/UX Designer. Estetika dan empati sangat terasa dari keseluruhan presentasi profil ini."
+  },
+  {
+    "postId": 6,
+    "voterId": 2,
+    "scores": [3, 2, 3],
+    "ratingType": "professional_recruiter",
+    "insight": "Sangat kreatif dan estetis. Penampilan yang stylish mencerminkan sensibilitas desain yang tinggi."
+  },
+  {
+    "postId": 6,
+    "voterId": 3,
+    "scores": [2, 3, 2],
+    "ratingType": "social",
+    "insight": null
+  },
+  {
+    "postId": 6,
+    "voterId": 5,
+    "scores": [3, 2, 3],
+    "ratingType": "social",
+    "insight": null
+  },
+  {
+    "postId": 6,
+    "voterId": 7,
+    "scores": [2, 3, 3],
+    "ratingType": "social",
+    "insight": null
+  },
+  {
+    "postId": 6,
+    "voterId": 9,
+    "scores": [3, 3, 2],
+    "ratingType": "social",
+    "insight": null
+  },
+
+  {
+    "postId": 7,
+    "voterId": 1,
+    "scores": [3, 3, 3],
+    "ratingType": "professional_recruiter",
+    "insight": "Profil DevOps yang sangat kompeten. Kesan sistematis dan efisien sangat menonjol, tepat untuk peran infrastructure."
+  },
+  {
+    "postId": 7,
+    "voterId": 2,
+    "scores": [2, 3, 3],
+    "ratingType": "professional_recruiter",
+    "insight": "Solid untuk DevOps Engineer. Fokus dan ketelitian terlihat jelas dari presentasi profil."
+  },
+  {
+    "postId": 7,
+    "voterId": 4,
+    "scores": [2, 2, 3],
+    "ratingType": "social",
+    "insight": null
+  },
+  {
+    "postId": 7,
+    "voterId": 6,
+    "scores": [3, 2, 2],
+    "ratingType": "social",
+    "insight": null
+  },
+  {
+    "postId": 7,
+    "voterId": 8,
+    "scores": [2, 3, 3],
+    "ratingType": "social",
+    "insight": null
+  },
+  {
+    "postId": 7,
+    "voterId": 10,
+    "scores": [3, 2, 3],
+    "ratingType": "social",
+    "insight": null
+  },
+
+  {
+    "postId": 8,
+    "voterId": 1,
+    "scores": [3, 2, 3],
+    "ratingType": "professional_recruiter",
+    "insight": "Energik dan inovatif. Cocok untuk tim mobile development yang dinamis dan bergerak cepat."
+  },
+  {
+    "postId": 8,
+    "voterId": 2,
+    "scores": [2, 3, 3],
+    "ratingType": "professional_recruiter",
+    "insight": "Mobile developer dengan kesan yang positif. Adaptabilitas terlihat sebagai kekuatan utama profil ini."
+  },
+  {
     "postId": 8,
     "voterId": 3,
+    "scores": [3, 2, 2],
+    "ratingType": "social",
+    "insight": null
+  },
+  {
+    "postId": 8,
+    "voterId": 5,
+    "scores": [2, 3, 2],
+    "ratingType": "social",
+    "insight": null
+  },
+  {
+    "postId": 8,
+    "voterId": 9,
+    "scores": [3, 2, 3],
+    "ratingType": "social",
+    "insight": null
+  },
+
+  {
+    "postId": 9,
+    "voterId": 1,
+    "scores": [3, 3, 3],
+    "ratingType": "professional_recruiter",
+    "insight": "Profil yang sangat kuat untuk Data Scientist. Kesan analitis dan intelektual sangat menonjol, sangat cocok untuk tim data kami."
+  },
+  {
+    "postId": 9,
+    "voterId": 2,
+    "scores": [3, 3, 2],
+    "ratingType": "professional_recruiter",
+    "insight": "Data Scientist yang menjanjikan. Kemampuan berpikir kritis terlihat sangat kuat dari keseluruhan profil."
+  },
+  {
+    "postId": 9,
+    "voterId": 4,
+    "scores": [2, 3, 2],
+    "ratingType": "social",
+    "insight": null
+  },
+  {
+    "postId": 9,
+    "voterId": 6,
+    "scores": [3, 2, 3],
+    "ratingType": "social",
+    "insight": null
+  },
+  {
+    "postId": 9,
+    "voterId": 7,
+    "scores": [2, 3, 3],
+    "ratingType": "social",
+    "insight": null
+  },
+  {
+    "postId": 9,
+    "voterId": 10,
+    "scores": [3, 3, 3],
+    "ratingType": "social",
+    "insight": null
+  },
+
+  {
+    "postId": 10,
+    "voterId": 1,
+    "scores": [3, 3, 2],
+    "ratingType": "professional_recruiter",
+    "insight": "QA Engineer yang terlihat sangat teliti dan sistematis. Kesan profesional dan dapat dipercaya sangat menonjol."
+  },
+  {
+    "postId": 10,
+    "voterId": 2,
+    "scores": [2, 3, 3],
+    "ratingType": "professional_recruiter",
+    "insight": "Solid untuk QA Engineer. Ketelitian dan sistematika terlihat sebagai kekuatan utama kandidat ini."
+  },
+  {
+    "postId": 10,
+    "voterId": 3,
+    "scores": [3, 2, 3],
+    "ratingType": "social",
+    "insight": null
+  },
+  {
+    "postId": 10,
+    "voterId": 5,
+    "scores": [2, 3, 2],
+    "ratingType": "social",
+    "insight": null
+  },
+  {
+    "postId": 10,
+    "voterId": 6,
     "scores": [3, 3, 2],
     "ratingType": "social",
     "insight": null
   },
   {
-    "id": 17,
-    "postId": 8,
-    "voterId": 5,
-    "scores": [2, 3, 3],
+    "postId": 10,
+    "voterId": 8,
+    "scores": [2, 2, 3],
     "ratingType": "social",
     "insight": null
   }
