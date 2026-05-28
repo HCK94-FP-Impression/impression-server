@@ -514,7 +514,11 @@ class CommunityController {
         content,
       });
 
-      res.status(201).json({ post: newPost });
+      const postWithUser = await CommunityPost.findByPk(newPost.id, {
+        include: [{ model: User, attributes: ["id", "username"] }],
+      });
+
+      res.status(201).json({ post: postWithUser });
     } catch (err) {
       next(err);
     }
