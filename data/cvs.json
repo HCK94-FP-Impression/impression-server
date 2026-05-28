@@ -1,0 +1,374 @@
+[
+  {
+    "userId": 1,
+    "experiences": [
+      {
+        "title": "Senior Backend Developer",
+        "company": "PT Gojek Indonesia",
+        "startDate": "2021-03-01",
+        "endDate": "Present",
+        "description": "Membangun dan memelihara microservices menggunakan Node.js dan Go. Mengelola database PostgreSQL dengan traffic jutaan request per hari."
+      },
+      {
+        "title": "Backend Developer",
+        "company": "Tokopedia",
+        "startDate": "2018-06-01",
+        "endDate": "2021-02-28",
+        "description": "Mengembangkan REST API untuk fitur pembayaran dan pengelolaan produk. Implementasi caching menggunakan Redis."
+      }
+    ],
+    "educations": [
+      {
+        "degree": "S1 Teknik Informatika",
+        "institution": "Institut Teknologi Bandung",
+        "startDate": "2014-08-01",
+        "endDate": "2018-07-01",
+        "gpa": 3.72
+      }
+    ],
+    "skills": [
+      "Node.js",
+      "Go",
+      "PostgreSQL",
+      "Redis",
+      "Docker",
+      "Kubernetes",
+      "AWS"
+    ]
+  },
+  {
+    "userId": 2,
+    "experiences": [
+      {
+        "title": "HR Manager",
+        "company": "Bukalapak",
+        "startDate": "2020-01-01",
+        "endDate": "Present",
+        "description": "Mengelola proses rekrutmen untuk posisi teknikal dan non-teknikal. Memimpin tim HR berjumlah 8 orang."
+      },
+      {
+        "title": "HR Specialist",
+        "company": "Traveloka",
+        "startDate": "2017-04-01",
+        "endDate": "2019-12-31",
+        "description": "Mengelola onboarding, performance review, dan employee engagement untuk departemen engineering."
+      }
+    ],
+    "educations": [
+      {
+        "degree": "S1 Psikologi",
+        "institution": "Universitas Indonesia",
+        "startDate": "2013-08-01",
+        "endDate": "2017-07-01",
+        "gpa": 3.65
+      }
+    ],
+    "skills": [
+      "Recruitment",
+      "Talent Management",
+      "Performance Review",
+      "Employee Relations",
+      "HRIS",
+      "Interviewing"
+    ]
+  },
+  {
+    "userId": 3,
+    "experiences": [
+      {
+        "title": "Backend Developer",
+        "company": "PT Teknologi Nusantara",
+        "startDate": "2023-01-01",
+        "endDate": "Present",
+        "description": "Membangun REST API menggunakan Node.js dan Express. Mengelola database PostgreSQL dan implementasi JWT authentication."
+      },
+      {
+        "title": "Junior Developer",
+        "company": "CV Digital Kreasi",
+        "startDate": "2021-06-01",
+        "endDate": "2022-12-31",
+        "description": "Membantu pengembangan fitur backend menggunakan Express.js dan MySQL."
+      }
+    ],
+    "educations": [
+      {
+        "degree": "S1 Ilmu Komputer",
+        "institution": "Universitas Indonesia",
+        "startDate": "2017-08-01",
+        "endDate": "2021-07-01",
+        "gpa": 3.7
+      }
+    ],
+    "skills": [
+      "Node.js",
+      "Express",
+      "PostgreSQL",
+      "MySQL",
+      "JWT",
+      "REST API",
+      "Git"
+    ]
+  },
+  {
+    "userId": 4,
+    "experiences": [
+      {
+        "title": "Frontend Developer",
+        "company": "Shopee Indonesia",
+        "startDate": "2022-03-01",
+        "endDate": "Present",
+        "description": "Mengembangkan UI komponen menggunakan React dan TypeScript. Optimasi performa web dengan Lighthouse score 90+."
+      },
+      {
+        "title": "Frontend Intern",
+        "company": "Startup Lokal Jakarta",
+        "startDate": "2021-01-01",
+        "endDate": "2022-02-28",
+        "description": "Membantu pengembangan landing page dan dashboard admin menggunakan Vue.js."
+      }
+    ],
+    "educations": [
+      {
+        "degree": "S1 Sistem Informasi",
+        "institution": "Universitas Bina Nusantara",
+        "startDate": "2017-09-01",
+        "endDate": "2021-08-01",
+        "gpa": 3.55
+      }
+    ],
+    "skills": [
+      "React",
+      "TypeScript",
+      "Next.js",
+      "Tailwind CSS",
+      "Vue.js",
+      "Figma",
+      "Git"
+    ]
+  },
+  {
+    "userId": 5,
+    "experiences": [
+      {
+        "title": "Fullstack Developer",
+        "company": "Ruangguru",
+        "startDate": "2022-06-01",
+        "endDate": "Present",
+        "description": "Membangun fitur end-to-end untuk platform edukasi menggunakan React di frontend dan Express.js di backend."
+      },
+      {
+        "title": "Web Developer",
+        "company": "Freelance",
+        "startDate": "2020-01-01",
+        "endDate": "2022-05-31",
+        "description": "Mengembangkan website untuk berbagai klien UMKM menggunakan WordPress dan custom PHP."
+      }
+    ],
+    "educations": [
+      {
+        "degree": "S1 Teknik Informatika",
+        "institution": "Universitas Brawijaya",
+        "startDate": "2016-08-01",
+        "endDate": "2020-07-01",
+        "gpa": 3.42
+      }
+    ],
+    "skills": [
+      "React",
+      "Express.js",
+      "Node.js",
+      "PostgreSQL",
+      "MongoDB",
+      "PHP",
+      "Docker"
+    ]
+  },
+  {
+    "userId": 6,
+    "experiences": [
+      {
+        "title": "UI/UX Designer",
+        "company": "Tiket.com",
+        "startDate": "2021-08-01",
+        "endDate": "Present",
+        "description": "Merancang user interface dan user experience untuk aplikasi mobile dan web. Melakukan user research dan usability testing."
+      },
+      {
+        "title": "Graphic Designer",
+        "company": "Agensi Kreatif Bandung",
+        "startDate": "2019-03-01",
+        "endDate": "2021-07-31",
+        "description": "Membuat aset visual untuk kampanye digital dan branding perusahaan."
+      }
+    ],
+    "educations": [
+      {
+        "degree": "S1 Desain Komunikasi Visual",
+        "institution": "Institut Teknologi Bandung",
+        "startDate": "2015-08-01",
+        "endDate": "2019-07-01",
+        "gpa": 3.8
+      }
+    ],
+    "skills": [
+      "Figma",
+      "Adobe XD",
+      "Sketch",
+      "Prototyping",
+      "User Research",
+      "Wireframing",
+      "Adobe Illustrator"
+    ]
+  },
+  {
+    "userId": 7,
+    "experiences": [
+      {
+        "title": "DevOps Engineer",
+        "company": "Blibli.com",
+        "startDate": "2022-01-01",
+        "endDate": "Present",
+        "description": "Mengelola infrastruktur cloud AWS dan GCP. Implementasi CI/CD pipeline menggunakan Jenkins dan GitHub Actions."
+      },
+      {
+        "title": "System Administrator",
+        "company": "PT Telkom Indonesia",
+        "startDate": "2019-07-01",
+        "endDate": "2021-12-31",
+        "description": "Mengelola server Linux dan network infrastructure untuk layanan enterprise."
+      }
+    ],
+    "educations": [
+      {
+        "degree": "S1 Teknik Elektro",
+        "institution": "Universitas Gadjah Mada",
+        "startDate": "2015-08-01",
+        "endDate": "2019-06-01",
+        "gpa": 3.48
+      }
+    ],
+    "skills": [
+      "AWS",
+      "GCP",
+      "Docker",
+      "Kubernetes",
+      "Terraform",
+      "Jenkins",
+      "Linux",
+      "Python"
+    ]
+  },
+  {
+    "userId": 8,
+    "experiences": [
+      {
+        "title": "Mobile Developer",
+        "company": "OVO",
+        "startDate": "2022-04-01",
+        "endDate": "Present",
+        "description": "Mengembangkan fitur baru untuk aplikasi fintech OVO menggunakan React Native dan Flutter."
+      },
+      {
+        "title": "Android Developer",
+        "company": "Startup Fintech Jakarta",
+        "startDate": "2020-02-01",
+        "endDate": "2022-03-31",
+        "description": "Membangun aplikasi Android native menggunakan Kotlin untuk platform pembayaran digital."
+      }
+    ],
+    "educations": [
+      {
+        "degree": "S1 Teknik Informatika",
+        "institution": "Universitas Diponegoro",
+        "startDate": "2016-08-01",
+        "endDate": "2020-07-01",
+        "gpa": 3.6
+      }
+    ],
+    "skills": [
+      "React Native",
+      "Flutter",
+      "Kotlin",
+      "Swift",
+      "Firebase",
+      "REST API",
+      "Git"
+    ]
+  },
+  {
+    "userId": 9,
+    "experiences": [
+      {
+        "title": "Data Scientist",
+        "company": "Grab Indonesia",
+        "startDate": "2021-05-01",
+        "endDate": "Present",
+        "description": "Membangun model machine learning untuk prediksi demand dan optimasi pricing. Menggunakan Python, TensorFlow, dan BigQuery."
+      },
+      {
+        "title": "Data Analyst",
+        "company": "Nielsen Indonesia",
+        "startDate": "2019-01-01",
+        "endDate": "2021-04-30",
+        "description": "Menganalisis data konsumen dan pasar menggunakan SQL, Python, dan Tableau."
+      }
+    ],
+    "educations": [
+      {
+        "degree": "S1 Statistika",
+        "institution": "Institut Pertanian Bogor",
+        "startDate": "2015-08-01",
+        "endDate": "2019-07-01",
+        "gpa": 3.75
+      }
+    ],
+    "skills": [
+      "Python",
+      "TensorFlow",
+      "PyTorch",
+      "SQL",
+      "BigQuery",
+      "Tableau",
+      "R",
+      "Machine Learning"
+    ]
+  },
+  {
+    "userId": 10,
+    "experiences": [
+      {
+        "title": "QA Engineer",
+        "company": "Dana Indonesia",
+        "startDate": "2022-02-01",
+        "endDate": "Present",
+        "description": "Melakukan pengujian manual dan otomatis untuk aplikasi fintech. Membuat test plan, test case, dan bug report."
+      },
+      {
+        "title": "Software Tester",
+        "company": "PT Solusi Digital",
+        "startDate": "2020-06-01",
+        "endDate": "2022-01-31",
+        "description": "Melakukan regression testing dan functional testing untuk aplikasi web dan mobile."
+      }
+    ],
+    "educations": [
+      {
+        "degree": "S1 Teknik Informatika",
+        "institution": "Universitas Dian Nuswantoro",
+        "startDate": "2016-09-01",
+        "endDate": "2020-08-01",
+        "gpa": 3.5
+      }
+    ],
+    "skills": [
+      "Selenium",
+      "Cypress",
+      "Postman",
+      "JMeter",
+      "JIRA",
+      "TestRail",
+      "SQL",
+      "Python"
+    ]
+  }
+]

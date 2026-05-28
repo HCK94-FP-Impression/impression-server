@@ -1,0 +1,44 @@
+{
+  "name": "impression-server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest --verbose --detectOpenHandles --forceExit",
+    "test:coverage": "jest --verbose --detectOpenHandles --forceExit --coverage",
+    "dev": "npx nodemon bin/www"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/HCK94-FP-Impression/impression-server.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/HCK94-FP-Impression/impression-server/issues"
+  },
+  "homepage": "https://github.com/HCK94-FP-Impression/impression-server#readme",
+  "dependencies": {
+    "@google/genai": "^2.4.0",
+    "axios": "^1.16.1",
+    "bcryptjs": "^3.0.3",
+    "cloudinary": "^2.10.0",
+    "cookie-parser": "^1.4.7",
+    "cors": "^2.8.6",
+    "dotenv": "^17.4.2",
+    "express": "^5.2.1",
+    "google-auth-library": "^10.6.2",
+    "jsonwebtoken": "^9.0.3",
+    "multer": "^2.1.1",
+    "pg": "^8.21.0",
+    "sequelize": "^6.37.8"
+  },
+  "devDependencies": {
+    "jest": "^30.4.2",
+    "nodemon": "^3.1.14",
+    "sequelize-cli": "^6.6.5",
+    "supertest": "^7.2.2"
+  }
+}
