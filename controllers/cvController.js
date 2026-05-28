@@ -1,7 +1,6 @@
-const { Cv, User } = require("../models");
+const { Cv, User, Post } = require("../models");
 
 class CvController {
-  // Method validator, bukan endpoint
   static async validateCv(cv) {
     if (cv.experiences.length !== 0) {
       for (let i of cv.experiences) {
@@ -11,8 +10,13 @@ class CvController {
           throw { name: "BadRequest", message: "Company is required" };
         if (!i?.startDate)
           throw { name: "BadRequest", message: "Start Date is required" };
-        if (!i?.endDate || i?.endDate?.toLowerCase() === "present")
+        if (!i?.endDate)
+          throw { name: "BadRequest", message: "End Date is required" };
+
+        if (i?.endDate?.toLowerCase() === "present") {
           i.endDate = "Present";
+        }
+
         const now = new Date(new Date().toISOString().slice(0, 10));
         const start = new Date(i?.startDate);
         const end = i.endDate === "Present" ? now : new Date(i?.endDate);
@@ -37,6 +41,7 @@ class CvController {
             message:
               "Experience start date cannot be more recent than current date",
           };
+
         i.startDate = new Date(
           Date.UTC(
             start.getUTCFullYear(),
@@ -46,11 +51,16 @@ class CvController {
         )
           .toISOString()
           .slice(0, 10);
+
         i.endDate =
           i.endDate === "Present"
             ? "Present"
             : new Date(
-                Date.UTC(end.getFullYear(), end.getMonth(), end.getDate()),
+                Date.UTC(
+                  end.getUTCFullYear(),
+                  end.getUTCMonth(),
+                  end.getUTCDate(),
+                ),
               )
                 .toISOString()
                 .slice(0, 10);
@@ -65,9 +75,15 @@ class CvController {
           throw { name: "BadRequest", message: "Institution is required" };
         if (!i?.startDate)
           throw { name: "BadRequest", message: "Start Date is required" };
-        if (!i?.endDate || i?.endDate?.toLowerCase() === "present")
+        if (!i?.endDate)
+          throw { name: "BadRequest", message: "End Date is required" };
+
+        if (i?.endDate?.toLowerCase() === "present") {
           i.endDate = "Present";
+        }
+
         if (!i?.gpa) throw { name: "BadRequest", message: "GPA is required" };
+
         const now = new Date(new Date().toISOString().slice(0, 10));
         const start = new Date(i?.startDate);
         const end = i.endDate === "Present" ? now : new Date(i?.endDate);
@@ -88,6 +104,7 @@ class CvController {
             message:
               "Education start date cannot be more recent than current date",
           };
+
         i.startDate = new Date(
           Date.UTC(
             start.getUTCFullYear(),
@@ -97,11 +114,16 @@ class CvController {
         )
           .toISOString()
           .slice(0, 10);
+
         i.endDate =
           i.endDate === "Present"
             ? "Present"
             : new Date(
-                Date.UTC(end.getFullYear(), end.getMonth(), end.getDate()),
+                Date.UTC(
+                  end.getUTCFullYear(),
+                  end.getUTCMonth(),
+                  end.getUTCDate(),
+                ),
               )
                 .toISOString()
                 .slice(0, 10);
@@ -118,32 +140,6 @@ class CvController {
     return cv;
   }
 
-  /* 
-        POST - /cvs/add
-        - Require Authentication (add cv ke akun pribadi)
-        - Require 5 quotas
-        - body: {
-            experiences: [{
-                title: String,
-                company: String,
-                startDate: Date,
-                endDate: Date,
-                description: String
-            }, ...],
-            educations: [{ 
-                degree: String,
-                institution: String,
-                startDate: Date,
-                endDate: Date,
-                gpa: Number
-            }, ...],
-            skills: [ String, ...]
-        },
-        - response: {
-            message: 'Create Cv Success!'
-        }
-        - All inputs optional, but each experience and education must have all fields filled.
-    */
   static async createCv(req, res, next) {
     try {
       const { id: userId } = req.user;
@@ -169,33 +165,6 @@ class CvController {
     }
   }
 
-  /* 
-        PATCH - /cvs/edit
-        - Require Authentication (edit cv akun pribadi)
-        - Require 5 quotas
-        - body: {
-            experiences: [{
-                title: String,
-                company: String,
-                startDate: Date,
-                endDate: Date,
-                description: String
-            }, ...],
-            educations: [{ 
-                degree: String,
-                institution: String,
-                startDate: Date,
-                endDate: Date,
-                gpa: Number
-            }, ...],
-            skills: [ String, ...]
-        }
-        - response: {
-            message: 'Update CV Success!'
-        }
-        - All inputs optional, but each experience and education must have all fields filled.
-        - Replaces every included field in the body with the provided field. Ex. if the educations field is included, then the whole array of objects will be replaced.
-    */
   static async updateCv(req, res, next) {
     try {
       const { id: userId } = req.user;
@@ -226,39 +195,20 @@ class CvController {
       await currCv.save();
       await user.decrement("quota", { by: 5 });
       await currCv.reload();
+
+      const post = await Post.findOne({ where: { userId } });
+      if (post && (post.aiScore !== null || post.aiInsight !== null)) {
+        post.aiScore = null;
+        post.aiInsight = null;
+        await post.save();
+      }
+
       res.status(200).json({ message: "Update CV Success!" });
     } catch (error) {
       next(error);
     }
   }
 
-  /* 
-        GET - /cvs/edit
-        - Require Authentication (lihat cv akun pribadi)
-        - response: {
-            id: Number,
-            userId: Number,
-            experiences: [{
-                title: String,
-                company: String,
-                startDate: Date,
-                endDate: Date,
-                description: String
-            }, ...],
-            educations: [{ 
-                degree: String,
-                institution: String,
-                startDate: Date,
-                endDate: Date,
-                gpa: Number
-            }, ...],
-            skills: [ String, ...]
-            createdAt: Date,
-            updatedAt: Date
-        }
-        - All inputs optional, but each experience and education must have all fields filled.
-        - Replaces every included field in the body with the provided field. Ex. if the educations field is included, then the whole array of objects will be replaced.
-        */
   static async getCv(req, res, next) {
     try {
       const { id } = req.user;

@@ -228,6 +228,8 @@ class PostController {
 
       if (hasChanges) {
         await Rating.destroy({ where: { postId: post.id } });
+        post.aiScore = null;
+        post.aiInsight = null;
       }
 
       if (targetJob) post.targetJob = targetJob;
