@@ -178,6 +178,18 @@ class CvController {
       const currCv = await Cv.findOne({ where: { userId } });
       if (!currCv) throw { name: "NotFound", message: "User CV not found!" };
 
+      const hasChanges =
+        (Array.isArray(experiences) &&
+          JSON.stringify(currCv.experiences) !== JSON.stringify(experiences)) ||
+        (Array.isArray(educations) &&
+          JSON.stringify(currCv.educations) !== JSON.stringify(educations)) ||
+        (Array.isArray(skills) &&
+          JSON.stringify(currCv.skills) !== JSON.stringify(skills));
+
+      if (!hasChanges) {
+        return res.status(200).json({ message: "No changes detected" });
+      }
+
       if (Array.isArray(experiences)) {
         currCv.experiences = experiences;
       }

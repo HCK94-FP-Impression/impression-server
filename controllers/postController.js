@@ -226,6 +226,10 @@ class PostController {
           JSON.stringify(JSON.parse(criteria)) !==
             JSON.stringify(post.criteria));
 
+      if (!hasChanges && !req.file) {
+        return res.status(200).json({ post });
+      }
+
       if (hasChanges) {
         await Rating.destroy({ where: { postId: post.id } });
         post.aiScore = null;
